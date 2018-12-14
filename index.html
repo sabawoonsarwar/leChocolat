@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
+
+    <!-- build:css css/main.css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
+    <!-- endbuild -->
+
     <title>Le Chocolat</title>
 </head>
 
@@ -36,7 +41,7 @@
                             <span class="fa fa-info fa-lg"></span> About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./menu.html">
                             <span class="fa fa-list fa-lg"></span> Menu</a>
                     </li>
                     <li class="nav-item">
@@ -52,6 +57,7 @@
             </div>
         </div>
     </nav>
+
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <!-- Modal content-->
@@ -101,30 +107,27 @@
             <div class="row row-header align-items-center">
 
                 <div class="col-12 col-sm-6">
+                    <!--changed from col-sm-8 to col-sm-6-->
                     <h1>Le Chocolat</h1>
                     <p>We combine experience with creativity to create innovative tastes based on classic chocolate
                         recipes. Our creations will travel you in the chocolate world!</p>
                 </div>
 
                 <div class="col col-sm-3">
+                    <!--changed from col-sm to col-sm-3 -->
                     <img src="images/logo.png" class="img-fluid">
                 </div>
-                <div class="col-sm-3">
-                    <!--                     <a class="btn btn-sm btn-warning" href="#basket">Reserve your Basket</a>
- --><a
-                        type="button" class="btn btn-warning btn-sm btn-block" data-toggle="tooltip" data-html="true"
-                        title="Or Call us at <br><strong>+ 987 6543 2100</strong>" data-placement="bottom" href="#reserve-form">
-                        Reserve your baskets
-                    </a>
-
+                <div class="col col-sm-3">
+                    <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#reserveModal">Reserve your
+                        baskets</a>
                 </div>
-
             </div>
         </div>
     </header>
 
     <!-- MAIN CONTENT -->
     <div class="container">
+
         <div class="row row-content">
             <div class="col">
                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
@@ -165,12 +168,14 @@
                             </div>
                         </div>
                     </div>
+
                     <ol class="carousel-indicators">
                         <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#mycarousel" data-slide-to="1"></li>
                         <li data-target="#mycarousel" data-slide-to="2"></li>
                     </ol>
 
+                    <!-- Left/Right Arrows -->
                     <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -179,6 +184,17 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+
+                    <!-- Play/Pause Buttons -->
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-sm" id="carousel-pause">
+                            <span class="fa fa-pause"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="carousel-play">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -249,82 +265,113 @@
                 </div>
             </div>
         </div>
-        <!--4th row-->
-        <div class="row justify-content-center">
-            <div class="col col-sm-8 col-12 ">
-                <div class="card mb-3">
-                    <div class="card-header bg-warning">Reserve your baskets</div>
-                    <div class="card-body">
 
-                        <form action="" id="basket">
-                            <div class="form-group row">
-                                <div class="col-sm-3">
-                                    <label for="radiobtn">Number of baskets</label>
-                                </div>
 
-                                <div class="col-sm-9">
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">1
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">2
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline ">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">3
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">4
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">5
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline ">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">6
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <p class="col-sm-3">Date and Time</p>
-                                <div class="input-group col-sm-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="date" class="form-control" placeholder="Date" id="date" name="date">
-                                </div>
-
-                                <div class="input-group col-sm-4">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="time" class="form-control" placeholder="Time" id="time" name="time">
-
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <input type="submit" class="btn btn-primary" value="Reserve">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     </div>
 
+    <!-- Reserve Modal -->
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
 
+            <div class="modal-content">
+
+                <div class="card mb-3">
+                    <div class="modal-header">
+                        <div class="card-header bg-warning">Reserve your baskets</div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form id="bskt" action="">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="radiobtn">Number of baskets</label>
+                                    </div>
+
+                                    <div class="col-sm-9">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">1
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">2
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline ">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">3
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">4
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">5
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline ">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">6
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <p class="col-sm-3">Date and Time</p>
+                                    <div class="input-group col-sm-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="date" class="form-control" placeholder="Date" id="date" name="date">
+                                    </div>
+
+                                    <div class="input-group col-sm-4">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="time" class="form-control" placeholder="Time" id="time" name="time">
+
+                                    </div>
+                                </div>
+                                <!--  radios -->
+                                <div class="form-group row">
+
+                                    <p class="col-sm-3">Home Delivery</p>
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-success active">
+                                            <input type="radio" name="section" id="yes" autocomplete="off" checked> Yes
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="radio" name="section" id="no" autocomplete="off">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- radios -->
+
+                                <div class="form-group row justify-content-end">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <input type="button" class="btn btn-primary" data-dismiss="modal" value="Cancel">
+                                        <input type="button" class="btn btn-primary" value="Submit">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
@@ -334,7 +381,7 @@
                     <ul class="list-unstyled">
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./aboutus.html">About</a></li>
-                        <li><a href="#">Menu</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
                         <li><a href="./contactus.html">Contact</a></li>
                     </ul>
                 </div>
@@ -377,18 +424,13 @@
     </footer>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <!-- build:js js/main.js -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/tether/dist/js/tether.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
+    <script src="js/scripts.js"></script>
+    <!-- endbuild -->
 </body>
-
 
 </html>
